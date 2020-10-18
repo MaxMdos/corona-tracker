@@ -1,11 +1,10 @@
 import React from 'react';
-import {getData} from './services/api'
 import DataCard from './components/data-card'
 import './App.css';
 
 export default class App extends React.Component {
-  constructor(props){
-    super(props)
+  constructor(){
+    super()
     this.state = {
       loaded: false,
       data: {}
@@ -13,14 +12,12 @@ export default class App extends React.Component {
   }
 
   componentDidMount(){
-    const API = 'https://covid19.mathdro.id/api'
-    fetch(API)
+    fetch("https://covid19.mathdro.id/api")
       .then(response => response.json())
       .then(result => this.setState({
         loaded: true,
         data: result
         }))
-
   }
 
   /*
